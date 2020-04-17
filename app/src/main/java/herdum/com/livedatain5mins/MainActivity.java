@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        getLifecycle().addObserver(viewModel);
+
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,11 +1,15 @@
 package herdum.com.livedatain5mins;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.OnLifecycleEvent;
 import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
 //jee1
-public class MainActivityViewModel extends ViewModel {
+public class MainActivityViewModel extends ViewModel  implements LifecycleObserver {
 
     boolean isContinue;
     int count;
@@ -49,6 +53,12 @@ public class MainActivityViewModel extends ViewModel {
     //jee4
     LiveData<Integer> getCounterLiveData(){
         return liveCounter;
+    }
+
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    private void funtionalityBasedonResumeOfActivity(){
+        Log.d("MainActivityViewModel", "funtionalityBasedonResumeOfActivity: "+"resume called");
     }
 
 
